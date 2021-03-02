@@ -68,8 +68,8 @@ const postHamburger = async (req, res) => {
         web: req.body.web,
         description: req.body.description,
         imageUrl: req.body.imageUrl,
-        ingredients: [{ingredientsName:req.body.ingredientsName }] ,
-        addreses: [{
+        ingredients: [{ ingredientsName: req.body.ingredientsName }],
+        addresses: [{
             number: req.body.number,
             line1: req.body.line1,
             line2: req.body.line2,

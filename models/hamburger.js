@@ -14,12 +14,9 @@ const hamburgerSchema = new Schema({
     description: String,
     imageUrl: String,
     ingredients: [
-        
-            
-            
-        
+
     ],
-    addresses: [{ number: String, line1: String, line2: String, postCode: String }]
+    addresses: []
 });
 
 module.exports = mongoose.model('hamburger', hamburgerSchema);
