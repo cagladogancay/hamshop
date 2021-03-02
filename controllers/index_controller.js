@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Hamburger = require('../models/hamburger');
+const jwt = require('jwt-simple');
 const main = (req, res) => {
     res.json({ message: 'Merhaba' });
 }
