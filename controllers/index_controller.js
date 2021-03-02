@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Hamburger = require('../models/hamburger');
+const jwt = require('jwt-simple');
 const main = (req, res) => {
     res.json({ message: 'Merhaba' });
 }
@@ -68,13 +69,13 @@ const postHamburger = async (req, res) => {
         web: req.body.web,
         description: req.body.description,
         imageUrl: req.body.imageUrl,
-        ingredients: [{ ingredientsName: req.body.ingredientsName }],
-        addresses: [{
+        ingredients: { ingredientsName: req.body.ingredientsName },
+        addresses: {
             number: req.body.number,
             line1: req.body.line1,
             line2: req.body.line2,
             postCode: req.body.postCode,
-        }],
+        },
     });
     try {
         await newHamburger.save((err, newHamburger) => {

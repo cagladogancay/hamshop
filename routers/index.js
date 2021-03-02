@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const User = require('../models/user');
 const IndexController = require('../controllers/index_controller');
-const jwt = require('jwt-simple');
 
 router.get('/', IndexController.main);
 //Register user 

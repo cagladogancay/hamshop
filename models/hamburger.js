@@ -13,10 +13,8 @@ const hamburgerSchema = new Schema({
     },
     description: String,
     imageUrl: String,
-    ingredients: [
-
-    ],
-    addresses: []
+    ingredients: {},
+    addresses: {}
 });
 
 module.exports = mongoose.model('hamburger', hamburgerSchema);
