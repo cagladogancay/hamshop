@@ -55,7 +55,7 @@ const getInfo = async (req, res) => {
 
 const getHamburger = async (req, res) => {
     try {
-        const allHamburger = await Hamburger.find();
+        const allHamburger = await Hamburger.find({});
         res.json({ allHamburger });
     } catch (error) {
         res.json({ success: false, msg: `Hamburgers could not be shown.${error} ` })
