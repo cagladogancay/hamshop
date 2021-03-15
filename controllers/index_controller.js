@@ -55,8 +55,8 @@ const getInfo = async (req, res) => {
 
 const getHamburger = async (req, res) => {
     try {
-        const allHamburger = await Hamburger.find({});
-        res.json({ allHamburger });
+        const allHamburger = await Hamburger.find();
+        res.json(allHamburger);
     } catch (error) {
         res.json({ success: false, msg: `Hamburgers could not be shown.${error} ` })
     }
@@ -69,7 +69,7 @@ const postHamburger = async (req, res) => {
         web: req.body.web,
         description: req.body.description,
         imageUrl: req.body.imageUrl,
-        ingredients:  req.body.ingredientsName ,
+        ingredients: req.body.ingredientsName,
         addresses: {
             number: req.body.number,
             line1: req.body.line1,
@@ -90,5 +90,18 @@ const postHamburger = async (req, res) => {
         res.json({ success: false, msg: `Hamburger could not be added ${error}` });
     }
 }
-
-module.exports = { main, register, login, getInfo, getHamburger, postHamburger }
+const getSingleHamburger = async (req, res) => {
+     await Hamburger.findById(req.params.id,(err,hamburger)=>{
+        try {
+           if(err){
+            res.json({ success: false,  msg: `A hamburger could not be shown.${err}` });
+           } else {
+            res.json({ success: true, msg: hamburger });
+           }
+        } catch (error) {
+            res.json({ success: false, msg: `A hamburger could not be shown. ${error}` });
+        }
+    });
+  
+}
+module.exports = { main, register, login, getInfo, getHamburger, postHamburger, getSingleHamburger }

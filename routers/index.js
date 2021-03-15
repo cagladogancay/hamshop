@@ -10,5 +10,7 @@ router.post('/login', IndexController.login)
 router.get('/getInfo', IndexController.getInfo);
 //Hamburger gösterimi 
 router.get('/showHamburger',IndexController.getHamburger);
+//Tek hamburger id ile gösterimi
+router.get('/showHamburger/:id',IndexController.getSingleHamburger);
 router.post('/addHamburger',IndexController.postHamburger);
 module.exports = router;
